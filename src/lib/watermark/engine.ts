@@ -566,7 +566,7 @@ export async function loadReferenceImages(): Promise<{ bg48: HTMLImageElement; b
       img.src = src;
     });
 
-  const [bg48, bg96] = await Promise.all([loadImage('/wm/bg48.png'), loadImage('/wm/bg96.png')]);
+  const [bg48, bg96] = await Promise.all([loadImage('/public/wm/bg48.png'), loadImage('/public/wm/bg96.png')]);
   return { bg48, bg96 };
 }
 
