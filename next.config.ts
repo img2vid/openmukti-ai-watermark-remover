@@ -1,9 +1,20 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export', // Forces Next.js to build static HTML files
-  basePath: '/openmukti-ai-watermark-remover', // Matches your GitHub repository name
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  output: 'export', // REQUIRED for GitHub Pages
+  
+  // Change this to match your actual repository name! 
+  // Based on your logs, it might be 'openmukti-ai-watermark-remover'
+  basePath: '/openmukti-ai-watermark-remover', 
+  
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true, // REQUIRED for static export
   },
+  
+  // If Prisma still throws type errors during the build, uncomment the lines below:
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 };
-module.exports = nextConfig;
+
+export default nextConfig;
