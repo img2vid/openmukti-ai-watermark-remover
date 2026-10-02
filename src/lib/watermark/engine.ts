@@ -566,7 +566,7 @@ export async function loadReferenceImages(): Promise<{ bg48: HTMLImageElement; b
       img.src = src;
     });
 
-  const [bg48, bg96] = await Promise.all([loadImage('/openmukti-ai-watermark-remover/wm/bg48.png'), loadImage('/openmukti-ai-watermark-remover/wm/bg96.png')]);
+  const [bg48, bg96] = await Promise.all([loadImage('https://github.com/img2vid/openmukti-ai-watermark-remover/blob/main/wm/bg48.png'), loadImage('https://github.com/img2vid/openmukti-ai-watermark-remover/blob/main/wm/bg96.png')]);
   return { bg48, bg96 };
 }
 
