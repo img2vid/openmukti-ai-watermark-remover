@@ -557,7 +557,11 @@ export function detectWatermarkCandidate(
 }
 
 /** Loads the two reference watermark captures (same-origin static assets). */
+/** Loads the two reference watermark captures (same-origin static assets). */
 export async function loadReferenceImages(): Promise<{ bg48: HTMLImageElement; bg96: HTMLImageElement }> {
+  // GitHub Pages hosts this in a subdirectory, so we must prefix the paths
+  const basePath = "/openmukti-ai-watermark-remover"; 
+  
   const loadImage = (src: string) =>
     new Promise<HTMLImageElement>((resolve, reject) => {
       const img = new Image();
@@ -566,7 +570,11 @@ export async function loadReferenceImages(): Promise<{ bg48: HTMLImageElement; b
       img.src = src;
     });
 
-  const [bg48, bg96] = await Promise.all([loadImage('https://github.com/img2vid/openmukti-ai-watermark-remover/blob/main/wm/bg48.png'), loadImage('https://github.com/img2vid/openmukti-ai-watermark-remover/blob/main/wm/bg96.png')]);
+  const [bg48, bg96] = await Promise.all([
+    loadImage(`${basePath}/wm/bg48.png`), 
+    loadImage(`${basePath}/wm/bg96.png`)
+  ]);
+  
   return { bg48, bg96 };
 }
 
