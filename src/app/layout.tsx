@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Openmukti Gemini Watermark Remover",
   description: "Remove the Gemini watermark from images locally in your browser.",
   icons: {
-    icon: "/wm/bg48.png",
+    icon: "https://img2vid.github.io/public/wm/bg48.png",
   },
 };
 
