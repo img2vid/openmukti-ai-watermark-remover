@@ -29,13 +29,18 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
+      # Generates the Prisma client so TypeScript doesn't throw errors
+      - name: Generate Prisma Client
+        run: bunx prisma generate
+
+      # Uses bunx to directly run Next.js build, bypassing your custom Z.AI script
       - name: Build Project
-        run: bun run build
+        run: bunx next build
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Since your project is Next.js, it will generate an 'out' folder.
+          # Next.js will output to './out' ONLY if you set output: 'export' in next.config.ts
           path: './out'
 
   deploy:
